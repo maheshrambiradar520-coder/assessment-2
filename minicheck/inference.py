@@ -36,7 +36,7 @@ class Inferencer():
                 os.makedirs(cache_dir)
 
         if model_name == 'flan-t5-large':
-                        ckpt = os.environ.get('MINICHECK_FLAN_T5_PATH', 'lytang/MiniCheck-Flan-T5-Large')
+            ckpt = os.environ.get('MINICHECK_FLAN_T5_PATH', 'lytang/MiniCheck-Flan-T5-Large')
             self.model = AutoModelForSeq2SeqLM.from_pretrained(ckpt, cache_dir=cache_dir, device_map="auto")
             self.tokenizer = AutoTokenizer.from_pretrained(ckpt, cache_dir=cache_dir)
 
