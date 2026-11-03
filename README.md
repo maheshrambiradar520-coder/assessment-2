@@ -30,4 +30,4 @@ Predicted labels: [1, 0]
 Support probabilities: [0.9806, 0.0071]
 ```
 
-![Screenshot of the completed MiniCheck demo](./minicheck-demo-output.jpg)
+![Screenshot of the completed MiniCheck demo](./images/minicheck-demo-output.jpg)
