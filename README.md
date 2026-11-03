@@ -1,8 +1,8 @@
 # MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents
 
-Assessment 2 project based on [Liyan06/MiniCheck](https://github.com/Liyan06/MiniCheck).
+Assessment 2 project based on the [MiniCheck repository](https://github.com/Liyan06/MiniCheck).
 
-## Run the demo
+## Run the demo (Windows)
 
 ```powershell
 py -3.11 -m venv .venv
@@ -12,12 +12,22 @@ python -m pip install -e .
 python run_demo.py
 ```
 
-The first run downloads the Flan-T5 MiniCheck checkpoint from Hugging Face.
+The first run downloads the Flan-T5 MiniCheck model from Hugging Face. The checkpoint is about 3.13 GB, so make sure you have enough free disk space. The downloaded model files stay in the ignored `ckpts/` directory and are not committed to GitHub.
 
-## Expected output
+To use a checkpoint already downloaded into `./ckpts/manual-model`, set the local path first:
 
-For the included example, the expected labels are `[1, 0]`. The upstream example reports support probabilities around `[0.9806, 0.0071]`. These are reference values, not output observed in this environment.
+```powershell
+$env:MINICHECK_FLAN_T5_PATH = ".\ckpts\manual-model"
+python run_demo.py
+```
 
-## Execution status
+## Successful execution
 
-Inference is pending because the Hugging Face checkpoint download did not progress in this environment. Add a screenshot of a completed run here after inference succeeds.
+The demo checked one supported and one unsupported claim against the grounding document. It completed successfully and returned:
+
+```text
+Predicted labels: [1, 0]
+Support probabilities: [0.9806, 0.0071]
+```
+
+![Screenshot of the completed MiniCheck demo](./minicheck-demo-output.jpg)
